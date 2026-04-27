@@ -1,0 +1,51 @@
+FACTORIAL:
+
+(defun fact2(n) ;;for recursive method
+        (if (= n 0) 1
+            (* n (fact2(- n 1)))
+        )
+)
+
+CL-USER 2 : 1 > (fact2 5)
+120
+
+FIBONACCI:
+
+(defun fib2(n)
+        (cond
+                ((= n 0) 0)
+                ((= n 1) 1)
+                ((> n 1)(+ (fib2 (- n 1)) (fib2 (- n 2))))
+        )
+)
+
+
+CL-USER 3 : 1 > (fib2 10)
+55
+
+AREA OF CIRCLE:
+
+(defun AreaOfCircle()
+        (terpri)
+        (princ "Enter Radius: ")
+        (setq radius (read))
+        (setq area (* 3.1416 radius radius))
+        (format t "Radius: = ~F~% Area = ~F" radius area)
+)
+
+
+Enter Radius: 3
+Radius = 3.0
+Area = 28.274399
+NIL
+
+PALINDROME:
+
+(defun palindrome-p (str)
+        (equal str (reverse str)))
+
+CL-USER 9 : 4 > (palindrome-p "RACECAR")
+T
+
+CL-USER 10 : 4 > (palindrome-p "AK")
+NIL
